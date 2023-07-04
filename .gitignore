@@ -1,0 +1,12 @@
+
+.idea/
+
+TestFramework/bin/
+
+TestFramework/obj/
+
+EventBus/bin/
+
+EventBus/obj/
+
+TestFramework/
