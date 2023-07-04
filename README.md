@@ -1,8 +1,14 @@
-# EventBus
+# EventHubFramework
+![Last Version : 1.0.0](https://img.shields.io/badge/release-1.0.0-green) 
+![Last Coomit : June 2023](https://img.shields.io/badge/last_commit-june_2023-blue) 
+![License](https://img.shields.io/badge/License-MIT-green)
 ## Introduction
 The EventBus repository is an implementation of an event bus for managing and distributing events within an application. It provides functionality for subscribing to and unsubscribing from events, as well as firing events and registering new event signals. The EventBus class is a static class, meaning it can be accessed globally without the need for an instance.
 ## Table of Contents
 - [Installation](#installation)
+    - [.NET CLI](#installcli)
+    - [NuGet Package Referense](#installnugetpackage)
+    - [PackageReference (MSBuild)](#installmsbuild)
 - [Usage](#usage)
     - [Registering Event Signals](#registering)
     - [Subscribing to Events](#subscribing)
@@ -13,6 +19,24 @@ The EventBus repository is an implementation of an event bus for managing and di
 - [Contributing](#contributing)
 
 # <a id="installation"/> Installation
+## <a id="installcli"/> Using .NET CLI
+To install the EventHubFramework NuGet package using the .NET CLI, open the command-line interface and execute the following command:
+```c#
+dotnet add package EventHubFramework --version 1.0.0
+```
+This command will add the JsContainer package with the specified version to your project.
+## <a id="installnugetpackage"/> Using NuGet Package Manager Console
+If you prefer using the NuGet Package Manager Console, you can execute the following command:
+```c#
+Install-Package JsContainer -Version 1.0.0
+```
+Running this command will install the JsContainer package with the specified version into your project.
+## <a id="installmsbuild"/> Using PackageReference (MSBuild)
+For projects that use MSBuild and PackageReference format, you can add the following line to your project file:
+```c#
+<PackageReference Include="EventHubFramework" Version="1.0.0" />
+```
+This configuration will ensure that the JsContainer package with the specified version is installed in your project.
 
 # <a id="usage"/> Usage
 ## <a id="registering"> Registering Event Signals
