@@ -25,6 +25,16 @@ public abstract class Signal<TSignal>
         Subscribers.Remove(type);
     }
 
+    internal void UnSubscribe(object subscriber, Action<TSignal> method)
+    {
+        var type = subscriber.GetType();
+        if (!Subscribers.ContainsKey(type))
+            throw new Exception($"Not Subscribed {type}");
+
+        if (Subscribers[type].Value == method)
+            Subscribers.Remove(type);
+    }
+
     internal void Fire()
     {
         foreach (var subscriber in Subscribers.Values)
