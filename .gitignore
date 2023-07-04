@@ -10,3 +10,7 @@ EventBus/bin/
 EventBus/obj/
 
 TestFramework/
+
+EventHubFramework/obj/
+
+EventHubFramework/bin/

@@ -1,4 +1,4 @@
-﻿namespace EventBus.Signal;
+﻿namespace EventHubFramework.Signal;
 
 public abstract class Signal<TSignal>
 {

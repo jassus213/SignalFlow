@@ -1,8 +1,8 @@
-﻿using EventBus.Common;
-using EventBus.Signal;
-using EventBus.Signal.Factory;
+﻿using EventHubFramework.Common;
+using EventHubFramework.Signal;
+using EventHubFramework.Signal.Factory;
 
-namespace EventBus;
+namespace EventHubFramework;
 
 public static class EventBus
 {

@@ -1,4 +1,4 @@
-﻿namespace EventBus.Common;
+﻿namespace EventHubFramework.Common;
 
 public class EventBusException : Exception
 {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus", "EventBus\EventBus.csproj", "{2B5DEAA0-5D3A-4E14-9B96-35AC8E853B95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubFramework", "EventHubFramework\EventHubFramework.csproj", "{2B5DEAA0-5D3A-4E14-9B96-35AC8E853B95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework", "TestFramework\TestFramework.csproj", "{F621CA8A-0417-41C3-9369-0EF6ABE11359}"
 EndProject

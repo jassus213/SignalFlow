@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace EventBus.Signal.Factory;
+namespace EventHubFramework.Signal.Factory;
 
 public static class SignalFactory
 {
