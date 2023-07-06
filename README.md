@@ -1,5 +1,5 @@
 # EventHubFramework
-![Last Version : 1.0.0](https://img.shields.io/badge/release-1.0.0-green) 
+![Last Version : 1.1.0](https://img.shields.io/badge/release-1.1.0-green) 
 ![Last Coomit : June 2023](https://img.shields.io/badge/last_commit-june_2023-blue) 
 ![License](https://img.shields.io/badge/License-MIT-green)
 ## Introduction
