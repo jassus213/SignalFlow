@@ -4,73 +4,91 @@ public abstract class Signal<TSignal>
 {
     private readonly TSignal _currentSignal;
 
-    private readonly Dictionary<Type, KeyValuePair<object, Action<TSignal>>> _subscribers =
-        new Dictionary<Type, KeyValuePair<object, Action<TSignal>>>();
+    private readonly Dictionary<string, object> _subscribers = new Dictionary<string, object>();
 
-    private readonly Dictionary<Type, KeyValuePair<object, Func<TSignal, Task>>> _queueAsyncSubscribers =
-        new Dictionary<Type, KeyValuePair<object, Func<TSignal, Task>>>();
+    private readonly Dictionary<string, Action<TSignal>> _syncSubscribers =
+        new Dictionary<string, Action<TSignal>>();
+
+    private readonly Dictionary<string, Func<TSignal, Task>> _queueAsyncSubscribers =
+        new Dictionary<string, Func<TSignal, Task>>();
 
     internal void Subscribe(object subscriber, Action<TSignal> action)
     {
-        var type = subscriber.GetType();
-        if (_subscribers.ContainsKey(type))
-            throw new Exception($"Already Subscribed {type}");
-
-        _subscribers.Add(type, new KeyValuePair<object, Action<TSignal>>(subscriber, action));
+        var hash = subscriber.GetHashCode().ToString();
+        if (_syncSubscribers.ContainsKey(hash))
+            throw new Exception($"Already Subscribed {hash}");
+        
+        Subscribe(hash, subscriber);
+        _syncSubscribers.Add(hash, action);
     }
     
     
     internal void Subscribe(object subscriber, Func<TSignal, Task> action)
     {
-        var type = subscriber.GetType();
-        if (_subscribers.ContainsKey(type))
-            throw new Exception($"Already Subscribed {type}");
+        var hash = subscriber.GetHashCode().ToString();
+        if (_syncSubscribers.ContainsKey(hash))
+            throw new Exception($"Already Subscribed {subscriber.GetType()}");
+        Subscribe(hash, subscriber);
+        _queueAsyncSubscribers.Add(hash, action);
+    }
 
-        _queueAsyncSubscribers.Add(type, new KeyValuePair<object, Func<TSignal, Task>>(subscriber, action));
+    private void Subscribe(string hash, object subscriber)
+    {
+        _subscribers.Add(hash, subscriber);
+    }
+
+    private void UnSubscribe(string hash)
+    {
+        _subscribers.Remove(hash);
     }
 
     internal void UnSubscribe(object subscriber)
     {
-        var type = subscriber.GetType();
-        if (!_subscribers.ContainsKey(type))
-            throw new Exception($"Not Subscribed {type}");
-
-        _subscribers.Remove(type);
+        var hash = subscriber.GetHashCode().ToString();
+        if (!_syncSubscribers.ContainsKey(hash))
+            throw new Exception($"Not Subscribed {subscriber.GetType()}");
+        
+        UnSubscribe(hash);
+        _syncSubscribers.Remove(hash);
     }
 
     internal void UnSubscribe(object subscriber, Action<TSignal> method)
     {
-        var type = subscriber.GetType();
-        if (!_subscribers.ContainsKey(type))
-            throw new Exception($"Not Subscribed {type}");
+        var hash = subscriber.GetHashCode().ToString();
+        if (!_syncSubscribers.ContainsKey(hash))
+            throw new Exception($"Not Subscribed {subscriber.GetType()}");
 
-        if (_subscribers[type].Value == method)
-            _subscribers.Remove(type);
+        if (_syncSubscribers[hash] == method)
+            _syncSubscribers.Remove(hash);
+        
+        UnSubscribe(hash);
     }
     
     internal void UnSubscribe(object subscriber, Func<TSignal, Task> method)
     {
-        var type = subscriber.GetType();
-        if (!_subscribers.ContainsKey(type))
-            throw new Exception($"Not Subscribed {type}");
+        var hash = subscriber.GetHashCode().ToString();
+        if (!_queueAsyncSubscribers.ContainsKey(hash))
+            throw new Exception($"{subscriber} Not Subscribed To {subscriber.GetType()}");
 
-        if (_queueAsyncSubscribers[type].Value == method)
-            _queueAsyncSubscribers.Remove(type);
+        if (_queueAsyncSubscribers[hash] == method)
+            _queueAsyncSubscribers.Remove(hash);
+        
+        UnSubscribe(hash);
     }
 
     internal void Fire()
     {
-        foreach (var subscriber in _subscribers.Values)
+        foreach (var subscriber in _syncSubscribers.Values)
         {
-            subscriber.Value.Invoke(_currentSignal);
+            subscriber.Invoke(_currentSignal);
         }
     }
 
     internal void Fire(TSignal currentSignal)
     {
-        foreach (var subscriber in _subscribers.Values)
+        foreach (var subscriber in _syncSubscribers.Values)
         {
-            subscriber.Value.Invoke(currentSignal);
+            subscriber.Invoke(currentSignal);
         }
     }
     
@@ -78,7 +96,7 @@ public abstract class Signal<TSignal>
     {
         foreach (var subscriber in _queueAsyncSubscribers.Values)
         {
-            await subscriber.Value.Invoke(_currentSignal);
+            await subscriber.Invoke(_currentSignal);
         }
     }
 
@@ -86,7 +104,7 @@ public abstract class Signal<TSignal>
     {
         foreach (var subscriber in _queueAsyncSubscribers.Values)
         {
-            await subscriber.Value.Invoke(currentSignal);
+            subscriber.Invoke(currentSignal);
         }
     }
 }
