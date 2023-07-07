@@ -12,9 +12,12 @@ The EventBus repository is an implementation of an event bus for managing and di
 - [Usage](#usage)
     - [Registering Event Signals](#registering)
     - [Subscribing to Events](#subscribing)
+      - [Subcribing To Sync Events](#subscribingsync)
+      - [Subscribing To Async Events](#subscribingasync)
     - [Unsubscribing from Events](#unsubscribing)
     - [Firing](#firing)
     - [Firing Events with Arguments](#firingwitharguments)
+    - [Async Firing](#asyncfiring)
 - [Examples](#examples)
 - [Contributing](#contributing)
 
@@ -46,6 +49,7 @@ EventBus.RegisterSignal<MyEventSignal>();
 ```
 After registering an event signal, you can subscribe, unsubscribe, and fire events using that signal.
 ## <a id="subscribing"> Subscribing to Events
+### <a id="subscribingsync"/> Subcribing To Synchronous Events
 To subscribe to an event, you can use the `Subscribe<TSignal>` method. This method takes a type parameter `TSignal`, which represents the event signal you want to subscribe to. The event signal should be a class or interface that defines the structure of the event.
 ```c#
 EventBus.Subscribe<MyEventSignal>(this, HandleMyEvent);
@@ -53,6 +57,13 @@ EventBus.Subscribe<MyEventSignal>(this, HandleMyEvent);
 this.Subscribe<MyEventSignal>(HandleMyEvent);
 ```
 The HandleMyEvent method is the event handler that will be called when the event is fired. It should have a compatible signature with the event signal.
+### <a id="subscribingasync"/> Subscribing to Asynchronous Signals
+To subscribe to an asynchronous signal, you can use the Subscribe<TSignal> method in the following format:
+```c#
+this.Subscribe<TestSignal>(TestSubscribe);
+```
+Here, TestSubscribe is an asynchronous method that returns a Task. It should have a compatible signature with the event signal TestSignal.
+
 ## <a id="unsubscribing"> Unsubscribing from Events
 **Please note that unsubscribing from signals is crucial**. To do this, implement the `IDisposable` interface and unsubscribe from all the signals to which the object is subscribed in its `Dispose` method.
 ```c#
@@ -73,6 +84,29 @@ public class BarReceiver : IDisposable
         this.UnSubscribe<TestSignal>(TestSubscribe);
     }
 }
+
+// OR if Async Signal
+
+public class MyClass : IDisposable
+{
+    public MyClass()
+    {
+        this.Subscribe<TestSignal>(TestSubscribe);
+    }
+
+    public void Dispose()
+    {
+        this.Unsubscribe<TestSignal>(TestSubscribe);
+    }
+
+    private async Task TestSubscribe(TestSignal signal)
+    {
+        // Handle the event asynchronously
+        await Task.Delay(1000);
+        Console.WriteLine("TestSignal handled asynchronously");
+    }
+}
+
 ```
 
 To unsubscribe from an event, you can use the `UnSubscribe<TSignal>` method. This method takes the same type parameter `TSignal` as the Subscribe method.
@@ -95,6 +129,23 @@ To fire an event with arguments, you can use the `Fire<TSignal>` or `TryFire<TSi
 ```c#
 EventBus.Fire<MyEventSignal>(() => new MyEventSignal {Arg1 = 10, Arg2 = string.Empty});
 ```
+
+## <a id="asyncfiring"/> Async Firing
+To fire an asynchronous signal, you can use the FireAsync method. It can accept an instance of the event signal TSignal or no arguments. The method returns a Task that represents the asynchronous operation.
+```c#
+await EventBus.FireAsync<TestSignal>();
+// Or
+EventBus.FireAsync<TestSignal>();
+// If you dont want awaiting signal
+```
+You can also pass an instance of the event signal as a parameter:
+```c#
+await EventBus.FireAsync(new TestSignal(arg1, arg2));
+// Or
+EventBus.FireAsync(new TestSignal(arg1, arg2));
+// If you dont want awaiting signal
+```
+
 # <a id="examples"/> Examples
 Here are some examples of how you can use the EventBus:
 ```c#
@@ -121,5 +172,31 @@ EventBus.Fire<MyEventSignal>(() => new MyEventSignal {Arg1 = 10};
 // Or
 EventBus.TryFire<MyEventSignal>(() => new MyEventSignal {Arg1 = 10};
 ```
+**Async Example**
+```c#
+public class MyClass : IDisposable
+{
+    public MyClass()
+    {
+        this.Subscribe<TestSignal>(TestSubscribe);
+    }
+
+    public void Dispose()
+    {
+        this.Unsubscribe<TestSignal>(TestSubscribe);
+    }
+
+    private async Task TestSubscribe(TestSignal signal)
+    {
+        // Handle the event asynchronously
+        await Task.Delay(1000);
+        Console.WriteLine("TestSignal handled asynchronously");
+    }
+}
+```
+In the above example, MyClass subscribes to the TestSignal event with the asynchronous method TestSubscribe. When the event is fired, TestSubscribe is invoked asynchronously to handle the event.
+Remember to implement the IDisposable interface if you need to unsubscribe from signals when the object is disposed to avoid memory leaks.
+That's it! You can now leverage the power of asynchronous signals in the EventBus repository to handle events asynchronously in your application.
+
 # <a id="contributing"> Contributing
 Contributions to the EventBus repository are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
