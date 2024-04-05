@@ -1,110 +1,95 @@
-﻿namespace EventHubFramework.Signal;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public abstract class Signal<TSignal>
+namespace EventHubFramework.Signal
 {
-    private readonly TSignal _currentSignal;
-
-    private readonly Dictionary<string, object> _subscribers = new Dictionary<string, object>();
-
-    private readonly Dictionary<string, Action<TSignal>> _syncSubscribers =
-        new Dictionary<string, Action<TSignal>>();
-
-    private readonly Dictionary<string, Func<TSignal, Task>> _queueAsyncSubscribers =
-        new Dictionary<string, Func<TSignal, Task>>();
-
-    internal void Subscribe(object subscriber, Action<TSignal> action)
+    public abstract class Signal<TSignal> where TSignal : new()
     {
-        var hash = subscriber.GetHashCode().ToString();
-        if (_syncSubscribers.ContainsKey(hash))
-            throw new Exception($"Already Subscribed {hash}");
-        
-        Subscribe(hash, subscriber);
-        _syncSubscribers.Add(hash, action);
-    }
-    
-    
-    internal void Subscribe(object subscriber, Func<TSignal, Task> action)
-    {
-        var hash = subscriber.GetHashCode().ToString();
-        if (_syncSubscribers.ContainsKey(hash))
-            throw new Exception($"Already Subscribed {subscriber.GetType()}");
-        Subscribe(hash, subscriber);
-        _queueAsyncSubscribers.Add(hash, action);
-    }
+        private readonly Dictionary<string, Action<TSignal>> _syncSubscribers =
+            new Dictionary<string, Action<TSignal>>();
 
-    private void Subscribe(string hash, object subscriber)
-    {
-        _subscribers.Add(hash, subscriber);
-    }
+        private readonly Dictionary<string, Func<TSignal, Task>> _queueAsyncSubscribers =
+            new Dictionary<string, Func<TSignal, Task>>();
 
-    private void UnSubscribe(string hash)
-    {
-        _subscribers.Remove(hash);
-    }
+        internal void Subscribe(Action<TSignal> action)
+        {
+            var hash = action.GetHashCode().ToString();
+            if (_syncSubscribers.ContainsKey(hash))
+                throw new Exception($"Already Subscribed {hash}");
 
-    internal void UnSubscribe(object subscriber)
-    {
-        var hash = subscriber.GetHashCode().ToString();
-        if (!_syncSubscribers.ContainsKey(hash))
-            throw new Exception($"Not Subscribed {subscriber.GetType()}");
-        
-        UnSubscribe(hash);
-        _syncSubscribers.Remove(hash);
-    }
+            Subscribe(hash, action);
+        }
 
-    internal void UnSubscribe(object subscriber, Action<TSignal> method)
-    {
-        var hash = subscriber.GetHashCode().ToString();
-        if (!_syncSubscribers.ContainsKey(hash))
-            throw new Exception($"Not Subscribed {subscriber.GetType()}");
+        internal void Subscribe(Func<TSignal, Task> action)
+        {
+            var hash = action.GetHashCode().ToString();
+            if (_syncSubscribers.ContainsKey(hash))
+                throw new Exception($"Already Subscribed {action.GetType()}");
+            Subscribe(hash, action);
+        }
 
-        if (_syncSubscribers[hash] == method)
+        private void Subscribe(string hash, Action<TSignal> action) =>
+            _syncSubscribers.Add(hash, action);
+
+        private void Subscribe(string hash, Func<TSignal, Task> action) =>
+            _queueAsyncSubscribers.Add(hash, action);
+
+
+        private void UnSubscribe(string hash) =>
             _syncSubscribers.Remove(hash);
-        
-        UnSubscribe(hash);
-    }
-    
-    internal void UnSubscribe(object subscriber, Func<TSignal, Task> method)
-    {
-        var hash = subscriber.GetHashCode().ToString();
-        if (!_queueAsyncSubscribers.ContainsKey(hash))
-            throw new Exception($"{subscriber} Not Subscribed To {subscriber.GetType()}");
 
-        if (_queueAsyncSubscribers[hash] == method)
+        private void UnSubscribeAsync(string hash) =>
             _queueAsyncSubscribers.Remove(hash);
-        
-        UnSubscribe(hash);
-    }
 
-    internal void Fire()
-    {
-        foreach (var subscriber in _syncSubscribers.Values)
+        internal void UnSubscribe(string hash, Action<TSignal> method)
         {
-            subscriber.Invoke(_currentSignal);
-        }
-    }
+            if (!_syncSubscribers.ContainsKey(hash))
+                throw new Exception($"Not Subscribed");
 
-    internal void Fire(TSignal currentSignal)
-    {
-        foreach (var subscriber in _syncSubscribers.Values)
-        {
-            subscriber.Invoke(currentSignal);
+            if (_syncSubscribers[hash] == method)
+                UnSubscribe(hash);
         }
-    }
-    
-    internal async Task FireAsync()
-    {
-        foreach (var subscriber in _queueAsyncSubscribers.Values)
-        {
-            await subscriber.Invoke(_currentSignal);
-        }
-    }
 
-    internal async Task FireAsync(TSignal currentSignal)
-    {
-        foreach (var subscriber in _queueAsyncSubscribers.Values)
+        internal void UnSubscribe(string hash, Func<TSignal, Task> method)
         {
-            subscriber.Invoke(currentSignal);
+            if (!_queueAsyncSubscribers.ContainsKey(hash))
+                throw new Exception($"{this} Is Have Not Subscribe To Method {method}");
+
+            if (_queueAsyncSubscribers[hash] == method)
+                UnSubscribeAsync(hash);
+        }
+
+        internal void Fire()
+        {
+            foreach (var subscriber in _syncSubscribers.Values)
+            {
+                subscriber.Invoke(new TSignal());
+            }
+        }
+
+        internal void Fire(TSignal currentSignal)
+        {
+            foreach (var subscriber in _syncSubscribers.Values)
+            {
+                subscriber.Invoke(currentSignal);
+            }
+        }
+
+        internal async Task FireAsync()
+        {
+            foreach (var subscriber in _queueAsyncSubscribers.Values)
+            {
+                await subscriber.Invoke(new TSignal());
+            }
+        }
+
+        internal async Task FireAsync(TSignal currentSignal)
+        {
+            foreach (var subscriber in _queueAsyncSubscribers.Values)
+            {
+                await subscriber.Invoke(currentSignal);
+            }
         }
     }
 }

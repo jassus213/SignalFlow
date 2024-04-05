@@ -1,13 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>disable</Nullable>
         <TargetFramework>net6.0</TargetFramework>
-        <Version>1.0.0</Version>
-        <PackageId>EventHubFramework</PackageId>
+        <LangVersion>10</LangVersion>
+        <PackageReadmeFile>./README.md</PackageReadmeFile>
         <Authors>JaSSuS</Authors>
+        <Description>
+            EventHubFramework simplifies event management in .NET applications with powerful APIs for event
+            registration, subscription, and firing. Easily handle synchronous and asynchronous events, manage
+            subscriptions to prevent memory leaks, and pass custom arguments when firing events. Enhance your
+            application's architecture with efficient event-driven communication using EventHubFramework.
+        </Description>
+        <PackageId>EventHubFramework</PackageId>
+        <Version>2.1.4</Version>
+        <PackageTags>.NET Event-Managment EventBus</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/jassus213/EventHub</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseUrl>https://github.com/jassus213/EventHub/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
