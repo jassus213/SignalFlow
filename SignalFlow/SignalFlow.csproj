@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>10</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Authors>JaSSuS</Authors>
+        <Description>
+            SignalFlow simplifies event management in .NET applications with powerful APIs for event
+            registration, subscription, and firing. Easily handle synchronous and asynchronous events, manage
+            subscriptions to prevent memory leaks, and pass custom arguments when firing events. Enhance your
+            application's architecture with efficient event-driven communication using SignalFlow.
+        </Description>
+        <PackageId>SignalFlow</PackageId>
+        <Version>1.0.0</Version>
+        <PackageTags>.NET Event-Managment EventBus</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/jassus213/SignalFlow</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseUrl>https://github.com/jassus213/SignalFlow/blob/main/LICENSE</PackageLicenseUrl>
+        <RootNamespace>SignalFlow</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>

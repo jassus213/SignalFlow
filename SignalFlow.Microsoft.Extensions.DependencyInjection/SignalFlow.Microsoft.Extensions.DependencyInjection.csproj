@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>10</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Authors>JaSSuS</Authors>
+        <Description>
+            SignalFlow.Microsoft.Extensions.DependencyInjection is a NuGet package that simplifies the integration of the SignalFlow library with Microsoft.Extensions.DependencyInjection in .NET applications.
+            This package enables seamless dependency injection of SignalFlow services, allowing you to efficiently manage and dispatch signals (events) within your application.
+        </Description>
+        <PackageId>SignalFlow.Microsoft.Extensions.DependencyInjection</PackageId>
+        <Version>1.0.0</Version>
+        <PackageTags>.NET Event-Managment EventBus DI ServiceCollection Microsoft</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/jassus213/SignalFlow</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseUrl>https://github.com/jassus213/SignalFlow/blob/main/LICENSE</PackageLicenseUrl>
+        <RootNamespace>SignalFlow.Microsoft.Extensions.DependencyInjection</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+        <PackageReference Include="SignalFlow" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>

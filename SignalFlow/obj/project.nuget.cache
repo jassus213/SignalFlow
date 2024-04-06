@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "vCENWoXYRUxBIE4xdPD5VTY6ee0AbWMXwaApWuDkCn9dDcidWs8xCaynY5cyQmpnSMfTUfh6l5Rc61ScEAHugA==",
+  "success": true,
+  "projectFilePath": "F:\\Projects\\EventHub\\SignalFlow\\SignalFlow.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}

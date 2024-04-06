@@ -1,0 +1,16 @@
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.deps.json
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.pdb
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\EventHub.dll
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\EventHub.pdb
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.csproj.AssemblyReference.cache
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.AssemblyInfoInputs.cache
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.AssemblyInfo.cs
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.csproj.CoreCompileInputs.cache
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.sourcelink.json
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.csproj.CopyComplete
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\refint\EventHub.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\EventHub.Microsoft.Extensions.DependencyInjection.pdb
+F:\Projects\EventHub\EventHub.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\ref\EventHub.Microsoft.Extensions.DependencyInjection.dll

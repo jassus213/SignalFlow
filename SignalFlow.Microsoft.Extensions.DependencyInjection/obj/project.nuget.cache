@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "/vkXhjq9wfg8Woai2i/sd7Mr3va0mpvoDOBvARUM7h73fK8r1xU9bxXSMp1RZFUPDP+ekwNv4M+sKbByMJNH0w==",
+  "success": true,
+  "projectFilePath": "F:\\Projects\\EventHub\\SignalFlow.Microsoft.Extensions.DependencyInjection\\SignalFlow.Microsoft.Extensions.DependencyInjection.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\signalflow\\1.0.0\\signalflow.1.0.0.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\csgom\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}

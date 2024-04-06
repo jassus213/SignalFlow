@@ -1,0 +1,13 @@
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.deps.json
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\bin\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.pdb
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.csproj.AssemblyReference.cache
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.AssemblyInfoInputs.cache
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.AssemblyInfo.cs
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.csproj.CoreCompileInputs.cache
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.sourcelink.json
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\refint\SignalFlow.Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\SignalFlow.Microsoft.Extensions.DependencyInjection.pdb
+F:\Projects\EventHub\SignalFlow.Microsoft.Extensions.DependencyInjection\obj\Release\net6.0\ref\SignalFlow.Microsoft.Extensions.DependencyInjection.dll
