@@ -1,0 +1,30 @@
+﻿services:
+  postgres:
+    image: postgres:11.4
+    environment:
+      POSTGRES_DB: products_example
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass ksjdakji2uy31uSKDJAK
+    volumes:
+      - cache:/data
+    restart: always
+    
+volumes:
+  cache:
+    driver: local
+  postgres-data:
+    driver: local

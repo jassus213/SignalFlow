@@ -1,24 +1,7 @@
-
+bin/
+obj/
 .idea/
 
-TestFramework/bin/
-
-TestFramework/obj/
-
-EventBus/bin/
-
-EventBus/obj/
-
-TestFramework/
-
-EventHubFramework/obj/
-
-EventHubFramework/bin/
-
 *.nupkg
-
-EventHubFramework.Unit/bin/
-
-EventHubFramework.Unit/obj/
 
 EventHubFramework.Unit/

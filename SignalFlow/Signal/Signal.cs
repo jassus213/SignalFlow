@@ -16,7 +16,7 @@ namespace SignalFlow.Signal
         {
             var hash = action.GetHashCode().ToString();
             if (_syncSubscribers.ContainsKey(hash))
-                throw new Exception($"Already Subscribed {hash}");
+                throw new Exception($"Already Subscribed {action.GetType()}");
 
             Subscribe(hash, action);
         }

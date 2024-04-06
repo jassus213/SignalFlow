@@ -176,7 +176,7 @@ namespace SignalFlow
             if (_map.TryGetValue(type, out var value))
             {
                 var signal = value as Signal<TSignal>;
-                signal?.Fire();
+                signal?.Fire(action());
             }
         }
 
@@ -193,6 +193,7 @@ namespace SignalFlow
             {
                 var signal = value as Signal<TSignal>;
                 await signal?.FireAsync()!;
+                return;
             }
 
             throw new EventBusException($"Cant Find Current Signal {typeof(TSignal)}");

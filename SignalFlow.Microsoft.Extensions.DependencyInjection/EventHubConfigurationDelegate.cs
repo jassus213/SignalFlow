@@ -2,4 +2,4 @@
 
 namespace SignalFlow.Microsoft.Extensions.DependencyInjection;
 
-public delegate void EventHubConfigurationDelegate(ISignalManager subscriptionManager);
+public delegate void EventHubConfigurationDelegate(ISignalManager configuration);

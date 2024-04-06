@@ -2,9 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalFlow", "SignalFlow\SignalFlow.csproj", "{2B5DEAA0-5D3A-4E14-9B96-35AC8E853B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubFramework.Unit", "EventHubFramework.Unit\EventHubFramework.Unit.csproj", "{C209AB63-7A4F-4D5C-B1F5-BD8747F7A62B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalFlow.Unit", "SignalFlow.Unit\SignalFlow.Unit.csproj", "{C209AB63-7A4F-4D5C-B1F5-BD8747F7A62B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalFlow.Microsoft.Extensions.DependencyInjection", "SignalFlow.Microsoft.Extensions.DependencyInjection\SignalFlow.Microsoft.Extensions.DependencyInjection.csproj", "{157EFAF7-1E3E-4A57-AE2C-056BC09792B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalFlow.Example", "SignalFlow.Example\SignalFlow.Example.csproj", "{EC125F5D-FB2E-4223-96E6-8CAAE0BDCC1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF6988EF-09AF-40D5-A9A9-52B2EBAECAAE}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +31,9 @@ Global
 		{157EFAF7-1E3E-4A57-AE2C-056BC09792B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{157EFAF7-1E3E-4A57-AE2C-056BC09792B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{157EFAF7-1E3E-4A57-AE2C-056BC09792B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC125F5D-FB2E-4223-96E6-8CAAE0BDCC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC125F5D-FB2E-4223-96E6-8CAAE0BDCC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC125F5D-FB2E-4223-96E6-8CAAE0BDCC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC125F5D-FB2E-4223-96E6-8CAAE0BDCC1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
