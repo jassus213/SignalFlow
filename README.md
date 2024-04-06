@@ -35,5 +35,6 @@ Start using SignalFlow today to build scalable and maintainable event-driven app
 
 | Package | Files |
 |----------|----------|
-| Signal Flow  | [ReadMe](https://github.com/jassus213/SignalFlow/tree/main/SignalFlow) |
+| SignalFlow  | [ReadMe](https://github.com/jassus213/SignalFlow/tree/main/SignalFlow) |
 | SignalFlow.Microsoft.Extensions.DependencyInjection | [ReadMe](https://github.com/jassus213/SignalFlow/tree/main/SignalFlow.Microsoft.Extensions.DependencyInjection) |
+| SignalFlow.Example | [ReadMe](https://github.com/jassus213/SignalFlow/blob/main/SignalFlow.Example/README.md) |
