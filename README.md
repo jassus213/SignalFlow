@@ -32,3 +32,8 @@ can streamline the implementation of event-driven patterns and improve the overa
 # <a id="support"/> Support and Feedback
 If you have any questions, issues, or feedback regarding the SignalFlow, feel free to reach out via GitHub Issues. Your contributions and suggestions are highly appreciated!
 Start using SignalFlow today to build scalable and maintainable event-driven applications in .NET!
+
+| Package | Files |
+|----------|----------|
+| Signal Flow  | [ReadMe](https://github.com/jassus213/SignalFlow/tree/main/SignalFlow) |
+| SignalFlow.Microsoft.Extensions.DependencyInjection | [ReadMe](https://github.com/jassus213/SignalFlow/tree/main/SignalFlow.Microsoft.Extensions.DependencyInjection) |
